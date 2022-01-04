@@ -1,13 +1,15 @@
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
     }
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: "com.github.johnrengelman.shadow"
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
@@ -76,8 +78,8 @@ configure(subprojects.findAll { true }) {
 }
 
 dependencies {
-    compile project(":api")
-    compile project(":model")
-    compile project(":security")
-    compile project(":websocketfeed")
+    implementation project(":api")
+    implementation project(":model")
+    implementation project(":security")
+    implementation project(":websocketfeed")
 }
